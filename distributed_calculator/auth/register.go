@@ -4,7 +4,7 @@ import (
 	"net/http"
 
 	"github.com/gorilla/mux"
-	"github.com/yourusername/yourproject/models"
+	"github.com/AkimKachaliev/Calculator_Golang---2-/models"
 )
 
 func Register(w http.ResponseWriter, r *http.Request) {
