@@ -2,8 +2,8 @@ package main
 
 import (
 	"github.com/gorilla/mux"
-	"github.com/yourusername/yourproject/auth"
-	"github.com/yourusername/yourproject/server"
+	"github.com/AkimKachaliev/Calculator_Golang---2-/auth"
+	"github.com/AkimKachaliev/Calculator_Golang---2-/server"
 	"net/http"
 )
 
