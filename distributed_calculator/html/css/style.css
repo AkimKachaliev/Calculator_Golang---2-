@@ -1,0 +1,47 @@
+/* Общие стили */
+body {
+    font-family: Arial, sans-serif;
+}
+
+#calculator {
+    width: 300px;
+    margin: 0 auto;
+    padding: 20px;
+    border: 1px solid #ccc;
+}
+
+#display {
+    width: 100%;
+    height: 50px;
+    font-size: 24px;
+    text-align: right;
+}
+
+.buttons {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 10px;
+}
+
+.button {
+    width: 100%;
+    height: 50px;
+    font-size: 24px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.operator {
+    background-color: #f0f0f0;
+}
+
+.clear {
+    background-color: #ff0000;
+    color: #fff;
+}
+
+.equal {
+    background-color: #00ff00;
+    color: #fff;
+}
