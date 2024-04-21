@@ -2,8 +2,8 @@ package server
 
 import (
 	"context"
-	"github.com/yourusername/yourproject/server/grpc"
-	"github.com/yourusername/yourproject/server/http"
+	"github.com/AkimKachaliev/Calculator_Golang---2-/server/grpc"
+	"github.com/AkimKachaliev/Calculator_Golang---2-/server/http"
 )
 
 func Calculator(w http.ResponseWriter, r *http.Request) {
