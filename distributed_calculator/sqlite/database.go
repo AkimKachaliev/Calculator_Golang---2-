@@ -6,38 +6,101 @@ import (
 )
 
 func NewDatabase() (*sql.DB, error) {
-	// Implement the logic for creating and initializing a new SQLite database
+    // Подключение к базе данных SQLite
+    db, err := sql.Open("sqlite3", "./calculator.db")
+    if err != nil {
+        return nil, err
+    }
+
+    // Создание таблиц для пользователей и вычислений
+    _, err = db.Exec(`
+        CREATE TABLE IF NOT EXISTS users (
+            id INTEGER PRIMARY KEY AUTOINCREMENT,
+            login TEXT UNIQUE NOT NULL,
+            password_hash TEXT NOT NULL
+        );
+
+        CREATE TABLE IF NOT EXISTS calculations (
+            id INTEGER PRIMARY KEY AUTOINCREMENT,
+            user_id INTEGER NOT NULL,
+            expression TEXT NOT NULL,
+            result TEXT NOT NULL,
+            FOREIGN KEY(user_id) REFERENCES users(id)
+        );
+    `)
+
+    return db, err
 }
 
 func Migrate(db *sql.DB) error {
-	// Implement the logic for applying database migrations
+    // Примените миграции для базы данных, если необходимо
+    // ...
+
+    return nil
 }
 
 func Close(db *sql.DB) error {
-	// Implement the logic for closing the SQLite database connection
+    return db.Close()
 }
 
-// Save method for User model
 func (u *User) Save(db *sql.DB) error {
-	// Implement the save method for the SQLite database
+    // Хэширование пароля
+    hashedPassword, err := bcrypt.GenerateFromPassword([]byte(u.Password), bcrypt.DefaultCost)
+    if err != nil {
+        return err
+    }
+
+    // Сохранение пользователя в базе данных
+    _, err = db.Exec("INSERT INTO users (login, password_hash) VALUES (?, ?)", u.Login, hashedPassword)
+
+    return err
 }
 
-// CheckPassword method for User model
-func (u *User) CheckPassword(db *sql.DB, password string) bool {
-	// Implement the password checking logic
+    // Получение хэша пароля из базы данных
+    var hashedPassword []byte
+    err := db.QueryRow("SELECT password_hash FROM users WHERE login = ?", u.Login).Scan(&hashedPassword)
+    if err != nil {
+        return false
+    }
+
+    // Сравнение хэша пароля из базы данных с введённым паролем
+    return bcrypt.CompareHashAndPassword(hashedPassword, []byte(password)) == nil
 }
 
-// Save method for Calculator model
 func (c *Calculator) Save(db *sql.DB) error {
-	// Implement the save method for the SQLite database
+    // Получение ID пользователя
+    var userID int
+    err := db.QueryRow("SELECT id FROM users WHERE login = ?", c.User.Login).Scan(&userID)
+    if err != nil {
+        return err
+    }
+
+    // Сохранение вычисления в базе данных
+    _, err = db.Exec("INSERT INTO calculations (user_id, expression, result) VALUES (?, ?, ?)", userID, c.Expression, c.Result)
+
+    return err
 }
 
-// NewUser function
 func NewUser(db *sql.DB, input models.User) (*User, error) {
-	// Implement the logic for creating a new user
+    // Создание нового пользователя
+    user := &User{
+        Login:    input.Login,
+        Password: input.Password,
+    }
+
+    // Сохранение пользователя в базе данных
+    err := user.Save(db)
+
+    return user, err
 }
 
-// FindUserByLogin function
 func FindUserByLogin(db *sql.DB, login string) (*User, error) {
-	// Implement the logic for finding a user by login
+    // Получение пользователя из базы данных по логину
+    var user User
+    err := db.QueryRow("SELECT id, login, password_hash FROM users WHERE login = ?", login).Scan(&user.ID, &user.Login, &user.Password)
+    if err != nil {
+        return nil, err
+    }
+
+    return &user, nil
 }
