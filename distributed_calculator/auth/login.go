@@ -4,8 +4,8 @@ import (
 	"encoding/json"
 	"net/http"
 
-	"github.com/yourusername/yourproject/models"
-	"github.com/yourusername/yourproject/utils"
+	"github.com/AkimKachaliev/Calculator_Golang---2-/models"
+	"github.com/AkimKachaliev/Calculator_Golang---2-/utils"
 )
 
 func Login(w http.ResponseWriter, r *http.Request) {
