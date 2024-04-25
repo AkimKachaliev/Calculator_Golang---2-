@@ -1,0 +1,21 @@
+- distributed-calculator
+- main.go
+- config/
+    - config.go
+- auth/
+    - register.go
+    - login.go
+    - router.go
+- models/
+    - user.go
+- calculator/
+    - calculator.proto
+    - calculator.go
+- tests/
+    - unit_tests.go
+    - integration_tests.go
+- docs/
+    - README.md
+- html/
+    - register.html
+    - login.html
