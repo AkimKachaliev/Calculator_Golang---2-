@@ -6,13 +6,14 @@ import (
 
 	"github.com/AkimKachaliev/distributed-calculator/distributed-calculator/models"
 	"google.golang.org/grpc"
+	"github.com/AkimKachaliev/distributed-calculator/distributed-calculator/api/v1/calculator"
 )
 
 type CalculatorServer struct {
-	models.UnimplementedCalculatorServer
+	calculator.UnimplementedCalculatorServer
 }
 
-func (s *CalculatorServer) Calculate(ctx context.Context, req *CalculateRequest) (*CalculateResponse, error) {
+func (s *CalculatorServer) Calculate(ctx context.Context, req *calculator.CalculateRequest) (*calculator.CalculateResponse, error) {
 	expression := models.Expression{
 		UserID:     req.GetUserID(),
 		Expression: req.GetExpression(),
@@ -23,7 +24,7 @@ func (s *CalculatorServer) Calculate(ctx context.Context, req *CalculateRequest)
 		return nil, err
 	}
 
-	return &CalculateResponse{Result: expression.Result}, nil
+	return &calculator.CalculateResponse{Result: expression.Result}, nil
 }
 
 func RunGRPCServer() error {
@@ -33,7 +34,7 @@ func RunGRPCServer() error {
 	}
 
 	s := grpc.NewServer()
-	models.RegisterCalculatorServer(s, &CalculatorServer{})
+	calculator.RegisterCalculatorServer(s, &CalculatorServer{})
 
 	return s.Serve(lis)
 }
