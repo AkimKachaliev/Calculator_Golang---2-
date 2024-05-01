@@ -1,8 +1,6 @@
-github.com/dgrijalva/jwt-go v0.10.0 h1:TKf1hXg9/+s3pB55Gm+vS5rZCb8/JYRpJkB3i64q6/Q=
-github.com/dgrijalva/jwt-go v0.10.0/go.mod h1:RjK+Q+/Kz9JL34/Kz/3c+8L1c+L5c+LpKaKc+LpKaKo=
-github.com/gorilla/mux v1.8.0 h1:rJYz7/WB6/+zT/qzT/qzT/qzT/qzT/qzT/qzT/qzT/qzT/qzT/q=
-github.com/gorilla/mux v1.8.0/go.mod h1:RjK+Q+/Kz9JL34/Kz/3c+8L1c+L5c+LpKaKc+LpKaKo=
-github.com/mattn/go-sqlite3 v1.14.8 h1:4+JjUbFq8yvP/+qzT/qzT/qzT/qzT/qzT/qzT/qzT/qzT/qzT/q=
-github.com/mattn/go-sqlite3 v1.14.8/go.mod h1:RjK+Q+/Kz9JL34/Kz/3c+8L1c+L5c+LpKaKc+LpKaKo=
-github.com/yourusername/distributed-calculator v0.0.0-00010101000000-000000000000 h1:4+JjUbFq8yvP/+qzT/qzT/qzT/qzT/qzT/qzT/qzT/qzT/qzT/q=
-github.com/yourusername/distributed-calculator v0.0.0-00010101000000-000000000000/go.mod h1:RjK+Q+/Kz9JL34/Kz/3c+8L1c+L5c+LpKaKc+LpKaKo=
+github.com/Knetic/govaluate v3.0.0+incompatible h1:7o6+MAPhYTCF0+fdvoz1xDedhRb4f6s9Tn1Tt7/WTEg=
+github.com/Knetic/govaluate v3.0.0+incompatible/go.mod h1:r7JcOSlj0wfOMncg0iLm8Leh48TZaKVeNIfJntJ2wa0=
+github.com/golang-jwt/jwt v3.2.2+incompatible h1:IfV12K8xAKAnZqdXVzCZ+TOjboZ2keLg81eXfW3O+oY=
+github.com/golang-jwt/jwt v3.2.2+incompatible/go.mod h1:8pz2t5EyA70fFQQSrl6XZXzqecmYZeUEB8OUGHkxJ+I=
+github.com/mattn/go-sqlite3 v1.14.22 h1:2gZY6PC6kBnID23Tichd1K+Z0oS6nE/XwU+Vz/5o4kU=
+github.com/mattn/go-sqlite3 v1.14.22/go.mod h1:Uh1q+B4BYcTPb+yiD3kU8Ct7aC0hY9fxUwlHK0RXw+Y=
