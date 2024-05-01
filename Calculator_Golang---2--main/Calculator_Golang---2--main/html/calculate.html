@@ -1,0 +1,14 @@
+{{define "add_page"}}
+
+{{template "head"}}
+<main>
+    <h1>Add Expression</h1>
+    <p>Please enter an expression to calculate:</p>
+
+    <form action="/s" method="POST">
+        <input type="text" name="expression" placeholder="Enter an expression">
+        <button type="submit">Submit</button>
+    </form>
+</main>
+
+{{end}}
