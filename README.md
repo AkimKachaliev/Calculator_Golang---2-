@@ -32,30 +32,24 @@
 
 Добавить по каждому критерию более лучше функционал
 - 
-- distributed-calculator
-- main.go
-- config/
-    - config.go
-- auth/
-    - register.go
-    - login.go
-    - router.go
+- Calculator_Golang---2--main
+- cmd/
+    - main.go
+- css/
+    - style.css
 - models/
     - user.go
-- calculator/
-    - calculator.proto
-    - calculator.go
-- tests/
-    - unit_tests.go
-    - integration_tests.go
-- docs/
-    - README.md
 - html/
-    - register.html
-    - login.html
-      Как запустить проект:
+    - auth.html
+    - calculate.html
+    - head.html
+    - main.html
+    - registration_jwt.html
+- internal/
+    - calculator.go
+    
+    - README.md
 
-Переходим в калькулятор (cd distributated-calculator)
-Добавляем указание cmd (mkdir cmd)
-компакт-диск cmd
-Далее в письме cmd пишем: go run main.go Или просто в редакторе запускаем файл main.go и он работает Контакты для связи: Аким Качалиев, телеграмм: @SHADOOW28
+     Как запустить проект:
+      go run ./cmd - запускает файл основной (т.е.файл main.go)
+      go run ./server - запускает весь проект (т.е.файл  server.go) По всем вопросам, ТГ: @SHADDOW28
