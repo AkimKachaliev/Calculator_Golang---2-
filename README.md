@@ -33,23 +33,26 @@
 Добавить по каждому критерию более лучше функционал
 - 
 - Calculator_Golang---2--main
-- cmd/
-    - main.go
-- css/
-    - style.css
-- models/
-    - user.go
-- html/
-    - auth.html
-    - calculate.html
-    - head.html
-    - main.html
-    - registration_jwt.html
-- internal/
+- distributed-calculator
+- auth/
+    - login.go
+    - register.go
+    - router.go
+- calculator/
     - calculator.go
+    - calculator.proto
+- config/
+    - config.go
+    - database.go
+- html/
+    - login
+    - register.html
+- models/
+    - expresssion.go
+    - user.go
     
     - README.md
 
      Как запустить проект:
       go run ./cmd - запускает файл основной (т.е.файл main.go)
-      go run ./server - запускает весь проект (т.е.файл  server.go) По всем вопросам, ТГ: @SHADDOW28
+      go run ./models - запускает весь проект (т.е.файл  expression.go) По всем вопросам, ТГ: @SHADDOW28
